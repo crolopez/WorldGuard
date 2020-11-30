@@ -151,10 +151,10 @@ public abstract class RegionOverlapTest {
 
         // Outside
         appl = manager.getApplicableRegions(outside);
-        assertTrue(appl.testState(null, Flags.FIRE_SPREAD));
+        assertFalse(appl.testState(null, Flags.FIRE_SPREAD));
         // Inside courtyard
         appl = manager.getApplicableRegions(inCourtyard);
-        assertTrue(appl.testState(null, Flags.FIRE_SPREAD));
+        assertFalse(appl.testState(null, Flags.FIRE_SPREAD));
         // Inside fountain
         appl = manager.getApplicableRegions(inFountain);
         assertFalse(appl.testState(null, Flags.FIRE_SPREAD));

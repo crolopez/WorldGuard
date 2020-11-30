@@ -130,7 +130,7 @@ public abstract class RegionPriorityTest {
         fountain.setPriority(0);
         
         appl = manager.getApplicableRegions(inCourtyard);
-        assertTrue(appl.testState(null, Flags.FIRE_SPREAD));
+        assertFalse(appl.testState(null, Flags.FIRE_SPREAD));
         assertFalse(appl.testState(null, Flags.MOB_SPAWNING));
         appl = manager.getApplicableRegions(inFountain);
         assertFalse(appl.testState(null, Flags.FIRE_SPREAD));
@@ -145,7 +145,7 @@ public abstract class RegionPriorityTest {
         fountain.setPriority(0);
         
         appl = manager.getApplicableRegions(inCourtyard);
-        assertTrue(appl.testState(null, Flags.FIRE_SPREAD));
+        assertFalse(appl.testState(null, Flags.FIRE_SPREAD));
         appl = manager.getApplicableRegions(inFountain);
         assertFalse(appl.testState(null, Flags.FIRE_SPREAD));
     }

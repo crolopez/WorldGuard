@@ -104,7 +104,7 @@ public final class Flags {
 
     // block dynamics
     public static final StateFlag PISTONS = register(new StateFlag("pistons", true));
-    public static final StateFlag FIRE_SPREAD = register(new StateFlag("fire-spread", true));
+    public static final StateFlag FIRE_SPREAD = register(new StateFlag("fire-spread", false));
     public static final StateFlag LAVA_FIRE = register(new StateFlag("lava-fire", true));
     public static final StateFlag LIGHTNING = register(new StateFlag("lightning", true));
     public static final StateFlag SNOW_FALL = register(new StateFlag("snow-fall", true));
