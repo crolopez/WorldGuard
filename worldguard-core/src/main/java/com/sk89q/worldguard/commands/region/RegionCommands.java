@@ -78,6 +78,7 @@ import com.sk89q.worldguard.session.Session;
 import com.sk89q.worldguard.util.Enums;
 import com.sk89q.worldguard.util.logging.LoggerToChatHandler;
 
+import javax.annotation.Nullable;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -311,6 +312,17 @@ public final class RegionCommands extends RegionCommandsBase {
                 player.printError("This region is too large to claim.");
                 player.printError("Max. volume: " + wcfg.maxClaimVolume + ", your volume: " + region.volume());
                 return;
+            }
+        }
+
+        // Add parent region
+		// The name should be parameterized
+        @Nullable ProtectedRegion parent = checkExistingRegion(manager, "__claimed-region-parent__", true);
+        if (parent != null) {
+            try {
+                region.setParent(parent);
+            } catch (CircularInheritanceException e) {
+                log.warning("Circular inheritance detected! Can't set the parent of '" + region + "' to parent '" + parent.getId() + "'");
             }
         }
 
